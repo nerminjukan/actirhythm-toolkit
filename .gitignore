@@ -1,0 +1,67 @@
+# --- Data: never commit raw or derived subject data ---
+data/**
+!data/*/
+!data/**/.gitkeep
+data-revised/
+past-runs/
+logs/
+outputs/**
+!outputs/.gitkeep
+*.parquet
+*.feather
+*.h5
+*.hdf5
+*.sav
+*.rds
+
+# Device/export files
+*.ACT.csv
+corrupt_*.csv
+
+# Study metadata that identifies individual subjects
+deployment_windows.csv
+subject_code_mapping.csv
+subject_sex_reference.csv
+subject_sex_overrides.csv
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+
+# --- Environments ---
+venv/
+.venv/
+env/
+.ml-venv/
+.glmm-venv/
+.cleanroom-venv/
+*.env
+.env
+.env.*
+
+# --- Notebooks ---
+.ipynb_checkpoints/
+
+# --- R (GLMM extra) ---
+.Rhistory
+.RData
+.Rproj.user/
+
+# --- Editors / OS ---
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db

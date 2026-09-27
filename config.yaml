@@ -1,0 +1,72 @@
+# Configuration file for thesis analysis pipeline
+# Copy this file and customize as needed
+
+# Global settings
+random_state: 42
+n_jobs: -1  # Use all available cores
+
+# Data paths
+paths:
+  raw_data: data/raw
+  processed_data: data/processed
+  outputs: outputs
+  logs: logs
+
+# Quality control settings
+qc:
+  expected_freq: 1H  # Expected time frequency
+  remove_duplicates: true
+  fill_method: null  # Options: null, 'ffill', 'bfill', 'interpolate'
+
+# Feature engineering settings
+features:
+  rolling_windows: [6, 12, 24]
+  rolling_stats: [mean, std, min, max]
+  lag_periods: [1, 6, 24]
+  time_features: [hour, day_of_week, is_weekend]
+  activity_method: abs  # Options: 'magnitude', 'abs', 'squared'
+
+# HMM/HSMM settings
+hmm:
+  state_range: [2, 3, 4, 5]
+  n_iter: 100
+  covariance_type: diag  # Options: 'spherical', 'diag', 'full', 'tied'
+  selection_criterion: bic  # Options: 'bic', 'aic'
+
+# Cosinor analysis settings
+cosinor:
+  period: 24.0  # hours
+  test_periods: [24.0, 12.0]
+  significance_test: true
+  n_permutations: 1000
+
+# Machine learning settings
+ml:
+  test_size: 0.2
+  cv_folds: 5
+  
+  # Random Forest parameters
+  rf:
+    n_estimators: 100
+    max_depth: 10
+    min_samples_split: 2
+    min_samples_leaf: 1
+  
+  # XGBoost parameters
+  xgb:
+    n_estimators: 100
+    max_depth: 6
+    learning_rate: 0.1
+    subsample: 0.8
+    colsample_bytree: 0.8
+  
+  # GLMM parameters
+  glmm:
+    family: gaussian
+    reml: true
+
+# Logging settings
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  log_to_file: true
+  log_params: true
