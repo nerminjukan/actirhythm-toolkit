@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="actirhythm-toolkit",
-    version="0.2.0",
+    version="0.2.1",
     description="Reproducible accelerometer analysis pipeline for circadian and behavioral rhythm studies",
     long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
@@ -13,10 +13,10 @@ setup(
         "Source": "https://github.com/nerminjukan/actirhythm-toolkit",
     },
     license="GPL-3.0-or-later",
+    license_files=["LICENSE"],
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Science/Research",
-        "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
@@ -68,5 +68,5 @@ setup(
             "actirhythm=src.cli:main",
         ],
     },
-    python_requires=">=3.8",
+    python_requires=">=3.10",
 )
